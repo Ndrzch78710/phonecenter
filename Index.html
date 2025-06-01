@@ -1,111 +1,237 @@
-<!-- SECTION AVIS CLIENTS : à placer juste après #services -->
-<section id="avis">
-  <h2>Avis Clients</h2>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<title>Phone Center - Rosny-sur-Seine</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('https://lh3.googleusercontent.com/p/AF1QipMVymrSXj_KyFYR3pO4-Cw7RTvPS84TIzb-CdfS=s1360-w1360-h1020-rw');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #222;
+}
+header {
+  background-color: rgba(0,0,0,0.75);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+nav {
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+}
+nav a {
+  color: white;
+  padding: 15px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+nav a:hover {
+  background-color: #555;
+}
+section {
+  background: rgba(255,255,255,0.95);
+  margin: 30px auto;
+  padding: 40px 20px;
+  max-width: 900px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+h2 {
+  margin-bottom: 25px;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.box {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 7px rgba(0,0,0,0.1);
+  padding: 15px;
+  width: 280px;
+  text-align: center;
+}
+.box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+input, textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+}
+button, input[type="submit"] {
+  background-color: #1e1e1e;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+button:hover, input[type="submit"]:hover {
+  background-color: #444;
+}
+iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+footer {
+  background-color: #1e1e1e;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+/* Styles pour les avis */
+#liste-avis {
+  margin-bottom: 30px;
+}
+.review {
+  background-color: #f9f9f9;
+  border-left: 5px solid #4caf50;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  font-style: italic;
+}
+</style>
+
+<script>
+  function ajouterAvis(event) {
+    event.preventDefault();
+    const nom = document.getElementById('nomAvis').value.trim();
+    const message = document.getElementById('messageAvis').value.trim();
+
+    if (nom && message) {
+      const avisSection = document.getElementById('liste-avis');
+      const avis = document.createElement('div');
+      avis.className = 'review';
+      avis.innerHTML = `<strong>${nom}</strong> : ${message}`;
+      avisSection.appendChild(avis);
+
+      // Reset form
+      document.getElementById('formAvis').reset();
+    }
+  }
+</script>
+
+</head>
+<body>
+
+<header>
+  <h1>Phone Center</h1>
+  <p>Vente & réparation de téléphones à Rosny-sur-Seine</p>
+</header>
+
+<nav>
+  <a href="#services">Services</a>
+  <a href="#gallery">Avant / Après</a>
+  <a href="#products">Produits</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="services">
+  <h2>Nos Services</h2>
   <div class="flex">
     <div class="box">
-      <p><strong>Julien M.</strong></p>
-      <p>⭐️⭐️⭐️⭐️⭐️</p>
-      <p>Réparation rapide, accueil top !</p>
+      <h3>Réparation Express</h3>
+      <p>Écrans, batteries, connecteurs</p>
+      <img src="https://maison.20minutes.fr/wp-content/uploads/2023/02/istock-1125323600-1024x576.jpg" alt="Réparation téléphone" />
     </div>
     <div class="box">
-      <p><strong>Sophie D.</strong></p>
-      <p>⭐️⭐️⭐️⭐️⭐️</p>
-      <p>Mon iPhone fonctionne comme neuf !</p>
+      <h3>Accessoires</h3>
+      <p>Coques, câbles, écouteurs</p>
+      <img src="https://i.pinimg.com/originals/7b/12/4f/7b124f42aefb35999bab0f52ebf07e85.jpg" />
     </div>
     <div class="box">
-      <p><strong>Karim Z.</strong></p>
-      <p>⭐️⭐️⭐️⭐️⭐️</p>
-      <p>Super service client, très pro.</p>
-    </div>
-    <div class="box">
-      <p><strong>Léna R.</strong></p>
-      <p>⭐️⭐️⭐️⭐️⭐️</p>
-      <p>Je recommande vivement.</p>
-    </div>
-    <div class="box">
-      <p><strong>Olivier T.</strong></p>
-      <p>⭐️⭐️⭐️⭐️⭐️</p>
-      <p>Service rapide et efficace !</p>
-    </div>
-    <div class="box">
-      <p><strong>Inès F.</strong></p>
-      <p>⭐️⭐️⭐️⭐️⭐️</p>
-      <p>Rien à dire, parfait !</p>
-    </div>
-    <div class="box">
-      <p><strong>Marc V.</strong></p>
-      <p>⭐️⭐️⭐️⭐️⭐️</p>
-      <p>Ils m'ont sauvé mon téléphone.</p>
-    </div>
-    <div class="box">
-      <p><strong>Camille L.</strong></p>
-      <p>⭐️⭐️⭐️⭐️⭐️</p>
-      <p>Très bon rapport qualité/prix.</p>
-    </div>
-    <div class="box">
-      <p><strong>Hamza K.</strong></p>
-      <p>⭐️⭐️⭐️⭐️⭐️</p>
-      <p>Service nickel, je reviendrai.</p>
-    </div>
-    <div class="box">
-      <p><strong>Laura P.</strong></p>
-      <p>⭐️⭐️⭐️⭐️⭐️</p>
-      <p>Merci pour la réparation express !</p>
+      <h3>Techniciens Experts</h3>
+      <p>Diagnostic rapide & pièces garanties</p>
+      <img src="https://maison.20minutes.fr/wp-content/uploads/2023/02/istock-1125323600-1024x576.jpg" alt="Atelier smartphone" />
     </div>
   </div>
 </section>
 
-<!-- PRODUITS COMPLÉMENTAIRES : à coller à la fin de #products -->
+<section id="gallery">
+  <h2>Avant / Après réparation</h2>
+  <div class="flex">
+    <div class="box">
+      <h4>Avant</h4>
+      <img src="https://www.annuaire-telephone-portable.com/wp-content/uploads/2020/08/28282-518-iphone.jpg" alt="Écran cassé" />
+    </div>
+    <div class="box">
+      <h4>Après</h4>
+      <img src="https://th.bing.com/th/id/R.edc43830266b1a30e6fdbeae5e89e53b?rik=FimJjjvMCVRD0w&riu=http%3a%2f%2fwww.imore.com%2fsites%2fimore.com%2ffiles%2fstyles%2fxlarge_wm_brw%2fpublic%2ffield%2fimage%2f2015%2f02%2fiphone-6-plus-home-screen-mac-keyboard-hero.jpg%3fitok%3dd5pOTn3p&ehk=7Kbl3jek7sYUsSNip%2fVZge1Vnm7yEaVFT9zr0rIjiNs%3d&risl=&pid=ImgRaw&r=0" alt="Téléphone réparé" />
+    </div>
+  </div>
+</section>
 
-<div class="flex">
-  <div class="box">
-    <h3>iPhone XR</h3>
-    <img src="https://www.tradelectronics.com.au/wp-content/uploads/2020/01/iPhone-XR-Black.jpg" alt="iPhone XR">
-    <p>Prix : 220 €</p>
+<section id="products">
+  <h2>Téléphones à vendre</h2>
+  <div class="flex">
+    <div class="box">
+      <h3>iPhone 11</h3>
+      <img src="https://th.bing.com/th/id/R.9667092dea3452797b5c1dd37402c67a?rik=XOW8kMCuo7Lh0A&pid=ImgRaw&r=0" alt="iPhone 11" />
+      <p>Prix : 250 €</p>
+    </div>
+    <div class="box">
+      <h3>Samsung Galaxy S10</h3>
+      <img src="https://tse3.mm.bing.net/th/id/OIP.Lt6zoJUD_h0eRwC-IErxiwHaFj?rs=1&pid=ImgDetMain" alt="Samsung Galaxy S10" />
+      <p>Prix : 299 €</p>
+    </div>
   </div>
-  <div class="box">
-    <h3>iPhone 12</h3>
-    <img src="https://www.benchmark.rs/assets/img/news/big_thumb/8295f073f98b9ef0fbe5e87e0f33be80.jpg" alt="iPhone 12">
-    <p>Prix : 380 €</p>
-  </div>
-  <div class="box">
-    <h3>Galaxy Note 10</h3>
-    <img src="https://images.samsung.com/is/image/samsung/p6pim/de/galaxy-note10/gallery/de-galaxy-note10-228377-sm-n970fzwadbt-thumb-188591636?$1300_1038_PNG$" alt="Note 10">
-    <p>Prix : 320 €</p>
-  </div>
-  <div class="box">
-    <h3>Huawei P30</h3>
-    <img src="https://fdn2.gsmarena.com/vv/pics/huawei/huawei-p30-2.jpg" alt="Huawei P30">
-    <p>Prix : 190 €</p>
-  </div>
-  <div class="box">
-    <h3>iPhone SE 2020</h3>
-    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-se-2020-1.jpg" alt="iPhone SE 2020">
-    <p>Prix : 180 €</p>
-  </div>
-  <div class="box">
-    <h3>Galaxy A52</h3>
-    <img src="https://images.samsung.com/is/image/samsung/p6pim/de/sm-a525fzkdeub/gallery/de-galaxy-a52-5g-a526-sm-a526bzkdeub-368364-sm-a526bzkdeub-368366-368370?$650_519_PNG$" alt="Galaxy A52">
-    <p>Prix : 210 €</p>
-  </div>
-  <div class="box">
-    <h3>Oppo Reno 4</h3>
-    <img src="https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno4-5g-1.jpg" alt="Oppo Reno 4">
-    <p>Prix : 200 €</p>
-  </div>
-  <div class="box">
-    <h3>Xiaomi Mi 10</h3>
-    <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-10-1.jpg" alt="Mi 10">
-    <p>Prix : 260 €</p>
-  </div>
-  <div class="box">
-    <h3>Galaxy S20</h3>
-    <img src="https://images.samsung.com/is/image/samsung/p6pim/de/feature/feature-galaxy-s20-5g-cloud-blue-212356983?$FB_TYPE_A_JPG$" alt="Galaxy S20">
-    <p>Prix : 400 €</p>
-  </div>
-  <div class="box">
-    <h3>iPhone 13</h3>
-    <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-13-01.jpg" alt="iPhone 13">
-    <p>Prix : 470 €</p>
-  </div>
-</div>
+</section>
+
+<section id="contact">
+  <h2>Contact & Localisation</h2>
+  <p><strong>Adresse :</strong> 75 rue Nationale, 78710 Rosny-sur-Seine</p>
+  <p><strong>Téléphone :</strong> <a href="tel:+33745633102">07 45 63 31 02</a></p>
+  <p><strong>Responsable :</strong> Nadir Ziouche</p>
+  <p><strong>Horaires :</strong> Mardi à Samedi : 9h30 - 12h / 14h30 - 19h</p>
+
+  <form>
+    <input type="text" placeholder="Votre nom" required />
+    <input type="email" placeholder="Votre email" required />
+    <textarea rows="5" placeholder="Votre message" required></textarea>
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2632.104999358839!2d1.6377454767764366!3d48.99457487134501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6b449de31f733%3A0xf66c95e15a9b7863!2s75%20Rue%20Nationale%2C%2078710%20Rosny-sur-Seine!5e0!3m2!1sfr!2sfr!4v1717230313144!5m2!1sfr!2sfr"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+  ></iframe>
+</section>
+
+<!-- Section avis clients ajoutée -->
+<section id="avis">
+  <h2>Avis clients</h2>
+  <div id="liste-
