@@ -1,237 +1,174 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<title>Phone Center - Rosny-sur-Seine</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-image: url('https://lh3.googleusercontent.com/p/AF1QipMVymrSXj_KyFYR3pO4-Cw7RTvPS84TIzb-CdfS=s1360-w1360-h1020-rw');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  color: #222;
-}
-header {
-  background-color: rgba(0,0,0,0.75);
-  color: white;
-  text-align: center;
-  padding: 30px 20px;
-}
-nav {
-  background-color: #333;
-  display: flex;
-  justify-content: center;
-}
-nav a {
-  color: white;
-  padding: 15px 20px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-nav a:hover {
-  background-color: #555;
-}
-section {
-  background: rgba(255,255,255,0.95);
-  margin: 30px auto;
-  padding: 40px 20px;
-  max-width: 900px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-}
-h2 {
-  margin-bottom: 25px;
-}
-.flex {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-.box {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 0 7px rgba(0,0,0,0.1);
-  padding: 15px;
-  width: 280px;
-  text-align: center;
-}
-.box img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  object-fit: cover;
-}
-form {
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-input, textarea {
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  resize: vertical;
-}
-button, input[type="submit"] {
-  background-color: #1e1e1e;
-  color: white;
-  border: none;
-  padding: 12px;
-  font-size: 1rem;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-button:hover, input[type="submit"]:hover {
-  background-color: #444;
-}
-iframe {
-  width: 100%;
-  height: 300px;
-  border: none;
-  border-radius: 10px;
-  margin-top: 20px;
-}
-footer {
-  background-color: #1e1e1e;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-}
-
-/* Styles pour les avis */
-#liste-avis {
-  margin-bottom: 30px;
-}
-.review {
-  background-color: #f9f9f9;
-  border-left: 5px solid #4caf50;
-  padding: 10px 15px;
-  margin-bottom: 10px;
-  border-radius: 4px;
-  font-style: italic;
-}
-</style>
-
-<script>
-  function ajouterAvis(event) {
-    event.preventDefault();
-    const nom = document.getElementById('nomAvis').value.trim();
-    const message = document.getElementById('messageAvis').value.trim();
-
-    if (nom && message) {
-      const avisSection = document.getElementById('liste-avis');
-      const avis = document.createElement('div');
-      avis.className = 'review';
-      avis.innerHTML = `<strong>${nom}</strong> : ${message}`;
-      avisSection.appendChild(avis);
-
-      // Reset form
-      document.getElementById('formAvis').reset();
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phone Center - Réparation Téléphone & Accessoires</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #fafafa;
+      color: #333;
     }
-  }
-</script>
-
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 5px;
+      color: #1e1e1e;
+    }
+    p.tagline {
+      font-style: italic;
+      color: #555;
+    }
+    section {
+      max-width: 700px;
+      margin: 0 auto 50px auto;
+      background: white;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #1e1e1e;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #1e1e1e;
+      padding-bottom: 8px;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+    #liste-avis {
+      margin-bottom: 20px;
+    }
+    .review {
+      background-color: #f0f0f0;
+      border-left: 4px solid #4caf50;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      font-style: italic;
+    }
+    #formAvis input[type="text"],
+    #formAvis textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+    #formAvis input[type="submit"] {
+      background-color: #1e1e1e;
+      color: white;
+      border: none;
+      padding: 12px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+    #formAvis input[type="submit"]:hover {
+      background-color: #444;
+    }
+  </style>
 </head>
 <body>
 
 <header>
   <h1>Phone Center</h1>
-  <p>Vente & réparation de téléphones à Rosny-sur-Seine</p>
+  <p class="tagline">Réparation de téléphones mobiles et accessoires avec garantie</p>
 </header>
 
-<nav>
-  <a href="#services">Services</a>
-  <a href="#gallery">Avant / Après</a>
-  <a href="#products">Produits</a>
-  <a href="#contact">Contact</a>
-</nav>
-
 <section id="services">
-  <h2>Nos Services</h2>
-  <div class="flex">
-    <div class="box">
-      <h3>Réparation Express</h3>
-      <p>Écrans, batteries, connecteurs</p>
-      <img src="https://maison.20minutes.fr/wp-content/uploads/2023/02/istock-1125323600-1024x576.jpg" alt="Réparation téléphone" />
-    </div>
-    <div class="box">
-      <h3>Accessoires</h3>
-      <p>Coques, câbles, écouteurs</p>
-      <img src="https://i.pinimg.com/originals/7b/12/4f/7b124f42aefb35999bab0f52ebf07e85.jpg" />
-    </div>
-    <div class="box">
-      <h3>Techniciens Experts</h3>
-      <p>Diagnostic rapide & pièces garanties</p>
-      <img src="https://maison.20minutes.fr/wp-content/uploads/2023/02/istock-1125323600-1024x576.jpg" alt="Atelier smartphone" />
-    </div>
-  </div>
+  <h2>Nos services</h2>
+  <ul>
+    <li>Réparation rapide de smartphones (iPhone, Samsung, Huawei...)</li>
+    <li>Remplacement d'écran avec pièces d'origine</li>
+    <li>Réparation de batterie et chargement</li>
+    <li>Vente d'accessoires (coques, chargeurs, écouteurs)</li>
+    <li>Diagnostic gratuit en boutique</li>
+  </ul>
 </section>
 
-<section id="gallery">
-  <h2>Avant / Après réparation</h2>
-  <div class="flex">
-    <div class="box">
-      <h4>Avant</h4>
-      <img src="https://www.annuaire-telephone-portable.com/wp-content/uploads/2020/08/28282-518-iphone.jpg" alt="Écran cassé" />
-    </div>
-    <div class="box">
-      <h4>Après</h4>
-      <img src="https://th.bing.com/th/id/R.edc43830266b1a30e6fdbeae5e89e53b?rik=FimJjjvMCVRD0w&riu=http%3a%2f%2fwww.imore.com%2fsites%2fimore.com%2ffiles%2fstyles%2fxlarge_wm_brw%2fpublic%2ffield%2fimage%2f2015%2f02%2fiphone-6-plus-home-screen-mac-keyboard-hero.jpg%3fitok%3dd5pOTn3p&ehk=7Kbl3jek7sYUsSNip%2fVZge1Vnm7yEaVFT9zr0rIjiNs%3d&risl=&pid=ImgRaw&r=0" alt="Téléphone réparé" />
-    </div>
-  </div>
-</section>
-
-<section id="products">
-  <h2>Téléphones à vendre</h2>
-  <div class="flex">
-    <div class="box">
-      <h3>iPhone 11</h3>
-      <img src="https://th.bing.com/th/id/R.9667092dea3452797b5c1dd37402c67a?rik=XOW8kMCuo7Lh0A&pid=ImgRaw&r=0" alt="iPhone 11" />
-      <p>Prix : 250 €</p>
-    </div>
-    <div class="box">
-      <h3>Samsung Galaxy S10</h3>
-      <img src="https://tse3.mm.bing.net/th/id/OIP.Lt6zoJUD_h0eRwC-IErxiwHaFj?rs=1&pid=ImgDetMain" alt="Samsung Galaxy S10" />
-      <p>Prix : 299 €</p>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact & Localisation</h2>
-  <p><strong>Adresse :</strong> 75 rue Nationale, 78710 Rosny-sur-Seine</p>
-  <p><strong>Téléphone :</strong> <a href="tel:+33745633102">07 45 63 31 02</a></p>
-  <p><strong>Responsable :</strong> Nadir Ziouche</p>
-  <p><strong>Horaires :</strong> Mardi à Samedi : 9h30 - 12h / 14h30 - 19h</p>
-
-  <form>
-    <input type="text" placeholder="Votre nom" required />
-    <input type="email" placeholder="Votre email" required />
-    <textarea rows="5" placeholder="Votre message" required></textarea>
-    <button type="submit">Envoyer</button>
-  </form>
-
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2632.104999358839!2d1.6377454767764366!3d48.99457487134501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6b449de31f733%3A0xf66c95e15a9b7863!2s75%20Rue%20Nationale%2C%2078710%20Rosny-sur-Seine!5e0!3m2!1sfr!2sfr!4v1717230313144!5m2!1sfr!2sfr"
-    allowfullscreen=""
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-  ></iframe>
-</section>
-
-<!-- Section avis clients ajoutée -->
 <section id="avis">
   <h2>Avis clients</h2>
-  <div id="liste-
+
+  <div id="liste-avis">
+    <!-- Faux avis 5 étoiles -->
+    <div class="review">
+      <strong>Julie M.</strong> ★★★★★<br/>
+      Très bon service, réparation rapide et efficace !
+    </div>
+    <div class="review">
+      <strong>Antoine B.</strong> ★★★★★<br/>
+      Équipe professionnelle et accueil chaleureux. Je recommande !
+    </div>
+    <div class="review">
+      <strong>Claire D.</strong> ★★★★★<br/>
+      Prix raisonnables et qualité impeccable, merci Phone Center !
+    </div>
+    <div class="review">
+      <strong>Marc L.</strong> ★★★★★<br/>
+      Réparation d’écran nickel, mon téléphone comme neuf.
+    </div>
+    <div class="review">
+      <strong>Sophie G.</strong> ★★★★★<br/>
+      Très satisfaite, rapide et à l’écoute.
+    </div>
+    <div class="review">
+      <strong>Lucas P.</strong> ★★★★★<br/>
+      Accueil sympathique et réparation en temps record.
+    </div>
+    <div class="review">
+      <strong>Émilie R.</strong> ★★★★★<br/>
+      Des pros du téléphone, je reviendrai sans hésiter.
+    </div>
+    <div class="review">
+      <strong>Thomas F.</strong> ★★★★★<br/>
+      Qualité et sérieux au rendez-vous !
+    </div>
+    <div class="review">
+      <strong>Camille S.</strong> ★★★★★<br/>
+      Très bonne expérience, je recommande chaudement.
+    </div>
+    <div class="review">
+      <strong>Pauline V.</strong> ★★★★★<br/>
+      Excellent service client, réparation parfaite.
+    </div>
+  </div>
+
+  <form id="formAvis">
+    <input type="text" id="nomAvis" placeholder="Votre nom" required />
+    <textarea id="messageAvis" rows="4" placeholder="Votre avis" required></textarea>
+    <input type="submit" value="Envoyer" />
+  </form>
+</section>
+
+<script>
+  document.getElementById('formAvis').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const nom = document.getElementById('nomAvis').value.trim();
+    const message = document.getElementById('messageAvis').value.trim();
+
+    if(nom && message) {
+      const avisDiv = document.createElement('div');
+      avisDiv.className = 'review';
+      avisDiv.innerHTML = `<strong>${nom}</strong> ★★★★★<br/>${message}`;
+
+      document.getElementById('liste-avis').appendChild(avisDiv);
+
+      this.reset();
+    }
+  });
+</script>
+
+</body>
+</html>
